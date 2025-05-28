@@ -1,0 +1,42 @@
+defaults: 
+  - dataset: ABIDE # ABIDE ADNI MDD
+  - model: bnt # brainnetcnn, fbnetgen, bnt, transformer
+  - optimizer: adam
+  - training: basic_training
+  - datasz: 100p
+  - preprocess: mixup
+
+data:
+  dataset: ABIDE # ABIDEII
+  atlas: aal # cc200或者Harvard或者aal
+  batch_size: 8
+  test_batch_size: 16
+  val_batch_size: 16
+  train_set: 0.8
+  val_set: 0.2
+  fold: 0
+  TopFeatpath: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\TopFeat
+  time_series_paths:
+    ABIDE: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data1.npy
+    ABIDEII: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data_ABIDEII.npy
+    ADNI: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data_ADNI.npy
+    MDD: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data_mdd.npy
+    ABIDE_cc200: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data_abide_cc200.npy
+    ABIDE_Harvard: E:\Technolgy_learning\Learning_code\New_Stage\KMGCN-main\KMGCN-yanxu\dataset\generrate_abide\processed\connectivity_data_abide_Harvard.npy
+#total_steps: 200
+
+
+
+repeat_time: 5
+log_path: result
+save_learnable_graph: True
+lunshu: 0
+which_model: abide
+duibifangfa:  BrainNetworkTransformer_abide_meiyougeti # GAT MLP Transformer_duibi cc200 消融实验 BrainNetworkTransformer_abide_meiyouLSTM BrainNetworkTransformer_abide_meiyouqunti
+#  BrainNetworkTransformer_abide_meiyougeti
+jiqixuexi: BrainGNN # MLP 随机森林
+# wandb
+wandb_entity: w321439340-shandong-normal-university
+project: brainnetworktransformer
+Partition: True
+path: E:\Technolgy_learning\Learning_code\AD\BrainNetworkTransformer-View-Bert\source_gai\data
